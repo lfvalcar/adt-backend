@@ -2,12 +2,13 @@ import { schemaGroup } from 'src/config/ldap-client';
 import { Injectable, OnModuleInit, OnModuleDestroy, InternalServerErrorException, NotFoundException, BadRequestException } from '@nestjs/common';
 import { client } from 'src/config/ldap-client';
 import * as bcrypt from 'bcrypt';
+import { ldapConfig } from 'src/config/ldap-client';
 
 @Injectable()
 export class OneService implements OnModuleInit, OnModuleDestroy {
   // CONNECTION
   onModuleInit() {
-    client.bind(`cn=${process.env.LDAP_USER},${process.env.DOMAIN}`, `${process.env.LDAP_PASSWORD}`, (err) => {
+    client.bind(`cn=${ldapConfig.ldapUser},${ldapConfig.ldapDomain}`, `${ldapConfig.ldapPassword}`, (err) => {
       if (err) {
         console.error('Conexión establecida', err);
       }
@@ -33,7 +34,7 @@ export class OneService implements OnModuleInit, OnModuleDestroy {
       };
 
       // Lanzar consulta
-      const entries = await client.search(process.env.DOMAIN, options);
+      const entries = await client.search(ldapConfig.ldapDomain, options);
 
       // Resultado
       if(entries.length===0){
@@ -75,7 +76,7 @@ export class OneService implements OnModuleInit, OnModuleDestroy {
         attributes: schema
       };
       // Lanzar la consulta
-      const entry = await client.search(process.env.DOMAIN, options);
+      const entry = await client.search(ldapConfig.ldapDomain, options);
 
       // Resultado
       return entry[0];
@@ -96,7 +97,7 @@ export class OneService implements OnModuleInit, OnModuleDestroy {
       };
     
       // Lanzar consulta
-      const entries = await client.search(process.env.DOMAIN, options);
+      const entries = await client.search(ldapConfig.ldapDomain, options);
 
       // Resultado
       if(entries.length===0){
@@ -153,7 +154,7 @@ export class OneService implements OnModuleInit, OnModuleDestroy {
         scope: 'sub',
         attributes: ['gidNumber'],
       };
-      var entries = await client.search(process.env.DOMAIN, opts);
+      var entries = await client.search(ldapConfig.ldapDomain, opts);
 
     } catch (err) {
       console.log(err); throw new InternalServerErrorException('Consulta no llega al servidor');
@@ -189,7 +190,7 @@ export class OneService implements OnModuleInit, OnModuleDestroy {
         attributes: ['uidNumber'],
       };
     
-      var entries = await client.search(process.env.DOMAIN, opts);
+      var entries = await client.search(ldapConfig.ldapDomain, opts);
 
     } catch (err) {
       console.log(err); throw new InternalServerErrorException('Consulta no llega al servidor');

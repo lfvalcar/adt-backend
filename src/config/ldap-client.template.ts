@@ -14,3 +14,9 @@ export const schemaGroup = ['dn','cn','gidNumber','description','memberUid'];
 export const schemaUser = ['uid', 'ou', 'givenName','sn','cn','mail',
                            'telephoneNumber','mobile','gidNumber',
                            'st','title','l','description','userPassword']
+
+  export const ldapConfig = {
+  ldapPassword: 'PASSWORD',
+  ldapUser: 'admin',
+  ldapDomain: 'dc=dominio,dc=es'
+}

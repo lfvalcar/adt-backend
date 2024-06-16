@@ -3,7 +3,7 @@ import { CreateOusDto } from './dto/create-ous.dto';
 import { UpdateOusDto } from './dto/update-ous.dto';
 import { ouGet } from 'src/interfaces/ou.interface';
 import { OneService } from '../one/one.service';
-import { schemaOu } from 'src/config/ldap-client';
+import { ldapConfig, schemaOu } from 'src/config/ldap-client';
 
 @Injectable()
 export class OusService {
@@ -34,7 +34,7 @@ export class OusService {
       ...createOusDto
     };
     // Aplicar entrada
-    const result = await this.oneService.add(`ou=${entry.ou},${process.env.DOMAIN}`, entry);
+    const result = await this.oneService.add(`ou=${entry.ou},${ldapConfig.ldapDomain}`, entry);
 
     // Resultado
     return result;

@@ -5,6 +5,7 @@ import { userGet } from 'src/interfaces/user.interface';
 import { OneService } from '../one/one.service';
 import { schemaUser } from 'src/config/ldap-client';
 import { schemaGroup } from 'src/config/ldap-client';
+import { ldapConfig } from 'src/config/ldap-client';
 
 @Injectable()
 export class UsersService {
@@ -52,7 +53,7 @@ export class UsersService {
       ...createUserDto
     };
     delete entry.group;
-    const result = await this.oneService.add(`uid=${entry.uid},ou=${entry.ou},${process.env.DOMAIN}`, entry);
+    const result = await this.oneService.add(`uid=${entry.uid},ou=${entry.ou},${ldapConfig.ldapDomain}`, entry);
     return result;  
   }
 

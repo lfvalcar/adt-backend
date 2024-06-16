@@ -3,7 +3,7 @@ import { CreateGroupDto } from './dto/create-group.dto';
 import { UpdateGroupDto } from './dto/update-group.dto';
 import { groupGet } from 'src/interfaces/group.interface';
 import { OneService } from '../one/one.service';
-import { schemaGroup } from 'src/config/ldap-client';
+import { ldapConfig, schemaGroup } from 'src/config/ldap-client';
 
 @Injectable()
 export class GroupsService {
@@ -40,7 +40,7 @@ export class GroupsService {
       ...createGroupDto
     };
     // Añadir entrada
-    const result = await this.oneService.add(`cn=${entry.cn},ou=${ou},${process.env.DOMAIN}`, entry);
+    const result = await this.oneService.add(`cn=${entry.cn},ou=${ou},${ldapConfig.ldapDomain}`, entry);
     // Resultado
     return result;
   }
