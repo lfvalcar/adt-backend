@@ -35,6 +35,7 @@
     "jsonwebtoken": "^9.0.2",
     "ldapjs-client": "^0.1.2",
     "mariadb": "^3.3.1",
+    "mysql": "^2.18.1",
     "passport": "^0.7.0",
     "passport-jwt": "^4.0.1",
     "passport-ldapauth": "^3.0.1",
