@@ -15,7 +15,7 @@ import { InventoryModule } from './modules/inventory/inventory.module';
   imports: [
     ConfigModule.forRoot(),
     TypeOrmModule.forRoot({
-    type: 'mysql',
+    type: 'mariadb',
     host: process.env.DB_HOST,
     port: +process.env.DB_PORT,
     database: process.env.DB_NAME,
