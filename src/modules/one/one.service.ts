@@ -7,7 +7,7 @@ import * as bcrypt from 'bcrypt';
 export class OneService implements OnModuleInit, OnModuleDestroy {
   // CONNECTION
   onModuleInit() {
-    client.bind(`cn=admin,${process.env.DOMAIN}`, 'Admin&2023', (err) => {
+    client.bind(`cn=${process.env.LDAP_USER},${process.env.DOMAIN}`, `${process.env.LDAP_PASSWORD}`, (err) => {
       if (err) {
         console.error('Conexión establecida', err);
       }
