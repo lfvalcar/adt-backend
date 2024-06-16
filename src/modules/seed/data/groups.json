@@ -1,0 +1,26 @@
+[
+  {
+    "cn": "alumnos",
+    "memberUid": ["mkent", "swhite"],
+    "ou": "alumnos",
+    "description": "Alumnos del centro"
+  },
+  {
+    "cn": "profesores",
+    "memberUid": ["asmith"],
+    "ou": "profesores",
+    "description": "Profesores del centro"
+  },
+  {
+    "cn": "administrativos",
+    "memberUid": ["rbrown"],
+    "ou": "administracion",
+    "description": "Administrativos del centro"
+  },
+  {
+    "cn": "direccion",
+    "memberUid": ["rblack"],
+    "ou": "direccion",
+    "description": "Directivos del centro"
+  }
+]

@@ -1,0 +1,18 @@
+[
+  {
+    "ou": "alumnos",
+    "description": "Alumnos del centro"
+  },
+  {
+    "ou": "profesores",
+    "description": "Profesores del centro"
+  },
+  {
+    "ou": "administracion",
+    "description": "Administracion del centro"
+  },
+  {
+    "ou": "direccion",
+    "description": "Direccion del centro"
+  }
+]
