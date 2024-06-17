@@ -12,10 +12,10 @@ export class SeedController {
     return this.seedService.ouLoadData();
   }
 
-  // @Delete('ous')
-  // userDeleteData(@Body() selectedUids) {
-  //   return this.seedService.userDeleteData(selectedUids);
-  // }
+  @Delete('ous')
+  ouDeleteData(@Body() selectedOus) {
+    return this.seedService.ouDeleteData(selectedOus);
+  }
 
   @Get('users')
   userCreateData() {

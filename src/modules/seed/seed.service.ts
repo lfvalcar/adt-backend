@@ -36,6 +36,23 @@ export class SeedService {
     }
   }
 
+  async ouDeleteData(selectedOus){
+    const insertPromisesOus = [];
+      seedGroup.forEach((ou: CreateOusDto) => {
+        insertPromisesOus.push(this.ousService.create(ou));
+      });
+
+    try {
+      await Promise.all(insertPromisesOus);
+      return {
+        msg: 'Borrado masivo de unidades organizativas ejecutado con éxito',
+        status: 200,
+      };
+    } catch (err) {
+      throw new InternalServerErrorException('Error en el borrado masivo de unidades organizativas');
+    }
+  }
+
   async userLoadData(){
     const insertPromisesUsers = [];
       seedUsers.forEach((user: CreateUserDto) => {
