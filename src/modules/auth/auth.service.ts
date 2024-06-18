@@ -20,7 +20,7 @@ export class AuthService {
 
     const ldapFilter = `(&(cn=administradores)(memberUid=${loginDto.username}))`
     const userAdmin = await this.oneService.findFilter(schemaGroup,ldapFilter);
-    if (!userAdmin) {
+    if (userAdmin.length === 0) {
       throw new UnauthorizedException('El usuario existe pero no tiene permiso de acceso');
     }
 
