@@ -1,4 +1,4 @@
-import { IsAlphanumeric, IsIn, IsNotEmpty, IsOptional, IsString, MaxLength, MinLength } from "class-validator";
+import { IsAlphanumeric, IsArray, IsIn, IsNotEmpty, IsOptional, IsString, MaxLength, MinLength } from "class-validator";
 
 
 export class UpdateGroupDto {
@@ -6,6 +6,10 @@ export class UpdateGroupDto {
     @IsString()
     @IsIn(['add', 'delete','replace'])
     action: string;
+
+    @IsOptional()
+    @IsArray()
+    fields?: string[];
 
     @IsOptional()
     @IsString()
