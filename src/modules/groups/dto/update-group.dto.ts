@@ -1,4 +1,4 @@
-import { IsIn, IsNotEmpty, IsOptional, IsString, MaxLength, MinLength } from "class-validator";
+import { IsAlphanumeric, IsIn, IsNotEmpty, IsOptional, IsString, MaxLength, MinLength } from "class-validator";
 
 
 export class UpdateGroupDto {
@@ -12,6 +12,7 @@ export class UpdateGroupDto {
     @IsNotEmpty()
     @MinLength(4)
     @MaxLength(16)
+    @IsAlphanumeric()
     ou?: string;
 
     @IsOptional()

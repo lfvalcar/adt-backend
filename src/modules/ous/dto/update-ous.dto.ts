@@ -1,4 +1,4 @@
-import { IsIn, IsNotEmpty, IsOptional, IsString, MaxLength, MinLength } from "class-validator";
+import { IsAlphanumeric, IsIn, IsNotEmpty, IsOptional, IsString, MaxLength, MinLength } from "class-validator";
 
 export class UpdateOusDto {
 
@@ -9,6 +9,7 @@ export class UpdateOusDto {
     @IsOptional()
     @MinLength(4)
     @IsString()
+    @IsAlphanumeric()
     ou?: string;
 
     @IsOptional()

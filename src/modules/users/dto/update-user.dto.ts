@@ -21,18 +21,21 @@ export class UpdateUserDto {
     @MaxLength(50)
     @MinLength(3)
     @IsString()
+    @Matches(/^[a-zA-Z ]$/)
     givenName?: string;
 
     @IsOptional()
     @MaxLength(50)
     @MinLength(3)
     @IsString()
+    @Matches(/^[a-zA-Z ]$/)
     sn?: string;
     
     @IsOptional()
     @MaxLength(100)
     @MinLength(6)
     @IsString()
+    @Matches(/^[a-zA-Z ]$/)
     cn?: string;
 
     @IsOptional()
@@ -58,16 +61,19 @@ export class UpdateUserDto {
     @IsOptional()
     @MinLength(3)
     @IsString()
+    @Matches(/^[a-zA-Z ]$/)
     st?: string;
 
     @IsOptional()
     @MinLength(3)
     @IsString()
+    @Matches(/^[a-zA-Z0-9 ]$/)
     title?: string;
 
     @IsOptional()
     @MinLength(3)
     @IsString()
+    @Matches(/^[a-zA-Z ]$/)
     l?: string;
 
     @IsOptional()

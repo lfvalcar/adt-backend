@@ -8,7 +8,7 @@ export class CreateUserDto {
     @IsAlpha()
     uid: string;
 
-    @IsAlpha()
+    @IsAlphanumeric()
     @IsNotEmpty()
     @MinLength(2)
     @MaxLength(16)
@@ -17,16 +17,19 @@ export class CreateUserDto {
     @MaxLength(50)
     @MinLength(3)
     @IsString()
+    @Matches(/^[a-zA-Z ]$/)
     givenName: string;
 
     @MaxLength(50)
     @MinLength(3)
     @IsString()
+    @Matches(/^[a-zA-Z ]$/)
     sn: string;
     
     @MaxLength(100)
     @MinLength(6)
     @IsString()
+    @Matches(/^[a-zA-Z ]$/)
     cn: string;
 
     @IsStrongPassword()
@@ -48,14 +51,17 @@ export class CreateUserDto {
 
     @MinLength(3)
     @IsString()
+    @Matches(/^[a-zA-Z ]$/)
     st: string;
 
     @MinLength(3)
     @IsString()
+    @Matches(/^[a-zA-Z0-9 ]$/)
     title: string;
 
     @MinLength(3)
     @IsString()
+    @Matches(/^[a-zA-Z ]$/)
     l: string;
 
     @IsOptional()
