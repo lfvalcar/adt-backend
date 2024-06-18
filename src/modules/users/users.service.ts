@@ -84,12 +84,6 @@ export class UsersService {
 
   // DELETE
   async remove(uid: string) {
-
-    const dnGroup:any = this.oneService.findFilter(schemaGroup,`(&(objectClass=posixGroup)(memberUid=${uid}))`)
-    for(let group of dnGroup){
-      this.oneService.ldapmodify('delete',{memberUid:uid},group.dn)
-    }
-
     const entry = await this.oneService.findOne(schemaUser,'posixAccount','uid',uid);
     // Aplicar borrado
     const result = await this.oneService.del(entry.dn)
