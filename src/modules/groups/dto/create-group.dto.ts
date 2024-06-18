@@ -7,7 +7,7 @@ export class CreateGroupDto {
     @IsString()
     @MaxLength(24)
     @MinLength(4)
-    @Matches(/^[a-zA-Z ]$/)
+    @Matches(/^[a-zA-Z ]*$/)
     cn: string;
 
     @IsNotEmpty()
